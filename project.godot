@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Template"
-config/features=PackedStringArray("4.3", "Mobile")
+config/name="MarbleGame"
+config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://images/icon.svg"
 
 [autoload]
