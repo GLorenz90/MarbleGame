@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://u6b6b4kehhef"]
+
+[ext_resource type="ArrayMesh" uid="uid://cw34uci0dfj7" path="res://meshes/coin.obj" id="1_fg0kt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w66ef"]
+height = 0.11
+radius = 0.14
+
+[node name="Eatable" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 11
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_w66ef")
+
+[node name="Coin" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+layers = 2
+mesh = ExtResource("1_fg0kt")
+skeleton = NodePath("../..")
