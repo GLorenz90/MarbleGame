@@ -14,7 +14,8 @@ var wallShapes: Array[ConvexPolygonShape3D];
 var shapePoints: Array[Vector3];
 var walls: Array[CollisionShape3D];
 var rays: Array[RayCast3D];
-var rayFullDepth := -1.0;
+var wallFullDepth := -1.0;
+var rayDepthOffset := 0.01;
 
 func _ready():
   walls = [
@@ -64,22 +65,22 @@ func _ready():
     Vector3(rays[13].position.x, 0.0, rays[13].position.z),
     Vector3(rays[14].position.x, 0.0, rays[14].position.z),
     Vector3(rays[15].position.x, 0.0, rays[15].position.z),
-    Vector3(rays[0].position.x, rayFullDepth, rays[1].position.z), # these do not change 
-    Vector3(rays[1].position.x, rayFullDepth, rays[1].position.z), # these do not change 
-    Vector3(rays[2].position.x, rayFullDepth, rays[2].position.z), # these do not change 
-    Vector3(rays[3].position.x, rayFullDepth, rays[3].position.z), # these do not change 
-    Vector3(rays[4].position.x, rayFullDepth, rays[4].position.z), # these do not change 
-    Vector3(rays[5].position.x, rayFullDepth, rays[5].position.z), # these do not change 
-    Vector3(rays[6].position.x, rayFullDepth, rays[6].position.z), # these do not change 
-    Vector3(rays[7].position.x, rayFullDepth, rays[7].position.z), # these do not change 
-    Vector3(rays[8].position.x, rayFullDepth, rays[8].position.z), # these do not change 
-    Vector3(rays[9].position.x, rayFullDepth, rays[9].position.z), # these do not change 
-    Vector3(rays[10].position.x, rayFullDepth, rays[10].position.z), # these do not change 
-    Vector3(rays[11].position.x, rayFullDepth, rays[11].position.z), # these do not change 
-    Vector3(rays[12].position.x, rayFullDepth, rays[12].position.z), # these do not change 
-    Vector3(rays[13].position.x, rayFullDepth, rays[13].position.z), # these do not change 
-    Vector3(rays[14].position.x, rayFullDepth, rays[14].position.z), # these do not change 
-    Vector3(rays[15].position.x, rayFullDepth, rays[15].position.z), # these do not change 
+    Vector3(rays[0].position.x, wallFullDepth, rays[1].position.z), # these do not change 
+    Vector3(rays[1].position.x, wallFullDepth, rays[1].position.z), # these do not change 
+    Vector3(rays[2].position.x, wallFullDepth, rays[2].position.z), # these do not change 
+    Vector3(rays[3].position.x, wallFullDepth, rays[3].position.z), # these do not change 
+    Vector3(rays[4].position.x, wallFullDepth, rays[4].position.z), # these do not change 
+    Vector3(rays[5].position.x, wallFullDepth, rays[5].position.z), # these do not change 
+    Vector3(rays[6].position.x, wallFullDepth, rays[6].position.z), # these do not change 
+    Vector3(rays[7].position.x, wallFullDepth, rays[7].position.z), # these do not change 
+    Vector3(rays[8].position.x, wallFullDepth, rays[8].position.z), # these do not change 
+    Vector3(rays[9].position.x, wallFullDepth, rays[9].position.z), # these do not change 
+    Vector3(rays[10].position.x, wallFullDepth, rays[10].position.z), # these do not change 
+    Vector3(rays[11].position.x, wallFullDepth, rays[11].position.z), # these do not change 
+    Vector3(rays[12].position.x, wallFullDepth, rays[12].position.z), # these do not change 
+    Vector3(rays[13].position.x, wallFullDepth, rays[13].position.z), # these do not change 
+    Vector3(rays[14].position.x, wallFullDepth, rays[14].position.z), # these do not change 
+    Vector3(rays[15].position.x, wallFullDepth, rays[15].position.z), # these do not change 
   ];
   
   wallShapes = [
@@ -161,7 +162,7 @@ func _on_deleter_body_entered(body):
 
 func updateHoleWalls():
   for i in rays.size():
-    shapePoints[i].y = rays[i].get_collision_point().y - rays[i].global_position.y if rays[i].is_colliding() else shapePoints[i].y;
+    shapePoints[i].y = rays[i].get_collision_point().y - rays[i].global_position.y - rayDepthOffset if rays[i].is_colliding() else shapePoints[i].y;
   
   wallShapes[0].set_points([shapePoints[0], shapePoints[1], shapePoints[8], shapePoints[9],  shapePoints[16], shapePoints[17], shapePoints[24], shapePoints[25]]);
   wallShapes[1].set_points([shapePoints[1], shapePoints[2], shapePoints[9], shapePoints[10],  shapePoints[17], shapePoints[18], shapePoints[25], shapePoints[26]]);
