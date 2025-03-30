@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7fnwqg4onsg0"]
+[gd_scene load_steps=14 format=3 uid="uid://c7fnwqg4onsg0"]
 
 [ext_resource type="Script" uid="uid://cklhykt02oxbo" path="res://scenes/marble.gd" id="1_48n7l"]
 [ext_resource type="PackedScene" uid="uid://cvn6pqebgua71" path="res://meshes/marble-center-butterfly-high.glb" id="1_hnng4"]
@@ -7,8 +7,29 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_48n7l"]
 radius = 0.2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_elksx"]
-size = Vector3(0.35, 1, 0.125)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_elksx"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vkscm"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qlryx"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e7phu"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_636ny"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uaa17"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x78xn"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l0lba"]
+points = PackedVector3Array(0, 0, -0.2, 0, 0, -0.4, 0.28, 0, -0.28, 0.14, 0, -0.14, 0, -1, -0.2, 0, -1, -0.4, 0.28, -1, -0.28, 0.14, -1, -0.14)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vkscm"]
 height = 0.2
@@ -20,6 +41,7 @@ script = ExtResource("1_48n7l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_48n7l")
+debug_color = Color(1, 0.52549, 0, 1)
 
 [node name="MarbleMesh" parent="." instance=ExtResource("1_hnng4")]
 visible = false
@@ -29,7 +51,7 @@ visible = false
 [node name="Decal" type="Decal" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 layers = 4
-size = Vector3(0.5, 2, 0.5)
+size = Vector3(0.4, 2, 0.4)
 texture_albedo = ExtResource("3_elksx")
 emission_energy = 0.0
 modulate = Color(0, 0, 0, 1)
@@ -38,110 +60,170 @@ lower_fade = 0.025
 cull_mask = 1047553
 
 [node name="HoleWalls" type="Node3D" parent="Body"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Movable" type="Node3D" parent="Body/HoleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 
-[node name="RayCast3D1" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.261803)
+[node name="Walls" type="Node3D" parent="Body/HoleWalls/Movable"]
 
-[node name="AnimatableBody3D" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.000196666)
-collision_layer = 8
-collision_mask = 2
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D1/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
-
-[node name="RayCast3D2" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.185, 0, -0.185)
-
-[node name="AnimatableBody3D2" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D2"]
+[node name="Wall1" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D2/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall1"]
+shape = SubResource("ConvexPolygonShape3D_elksx")
+debug_color = Color(0.95, 0, 0.57, 1)
 
-[node name="RayCast3D3" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.262, 0, 0)
-
-[node name="AnimatableBody3D2" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D3"]
+[node name="Wall2" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D3/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall2"]
+shape = SubResource("ConvexPolygonShape3D_vkscm")
+debug_color = Color(0.95, 0, 0.57, 1)
 
-[node name="RayCast3D4" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.185, 0, 0.185)
-
-[node name="AnimatableBody3D2" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D4"]
+[node name="Wall3" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D4/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_qlryx")
+debug_color = Color(0.95, 0, 0.57, 1)
 
-[node name="RayCast3D5" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.262)
-
-[node name="AnimatableBody3D" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.000196666)
+[node name="Wall4" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D5/AnimatableBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall4"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_e7phu")
+debug_color = Color(0.95, 0, 0.57, 1)
 
-[node name="RayCast3D6" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.185, 0, 0.185)
-
-[node name="AnimatableBody3D2" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D6"]
+[node name="Wall5" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D6/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall5"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_636ny")
+debug_color = Color(0.95, 0, 0.57, 1)
 
-[node name="RayCast3D7" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.262, 0, 0)
-
-[node name="AnimatableBody3D2" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D7"]
+[node name="Wall6" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D7/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall6"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_uaa17")
+debug_color = Color(0.95, 0, 0.57, 1)
 
-[node name="RayCast3D8" type="RayCast3D" parent="Body/HoleWalls/Movable"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.185, 0, -0.185)
-
-[node name="AnimatableBody3D2" type="StaticBody3D" parent="Body/HoleWalls/Movable/RayCast3D8"]
+[node name="Wall7" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/RayCast3D8/AnimatableBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_elksx")
-debug_color = Color(0.962528, 0, 0.504052, 0.42)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall7"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_x78xn")
+debug_color = Color(0.95, 0, 0.57, 1)
+
+[node name="Wall8" type="StaticBody3D" parent="Body/HoleWalls/Movable/Walls"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Movable/Walls/Wall8"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_l0lba")
+debug_color = Color(0.95, 0, 0.57, 1)
+
+[node name="Rays" type="Node3D" parent="Body/HoleWalls/Movable"]
+
+[node name="RayCast3D1" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D2" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0, -0.14)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D3" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D4" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14, 0, 0.14)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D5" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D6" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0, 0.14)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D7" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D8" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14, 0, -0.14)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D9" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D10" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28, 0, -0.28)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D11" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.401327, 0, 0)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D12" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28, 0, 0.28)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D13" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D14" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0, 0.28)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D15" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
+
+[node name="RayCast3D16" type="RayCast3D" parent="Body/HoleWalls/Movable/Rays"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0, -0.28)
+debug_shape_custom_color = Color(0.0163331, 0, 0.98, 1)
+debug_shape_thickness = 1
 
 [node name="Activator" type="Area3D" parent="Body/HoleWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -149,9 +231,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Activator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CylinderShape3D_vkscm")
-debug_color = Color(0.355503, 0.618433, 0, 0.42)
+debug_color = Color(0.351333, 0.62, 0, 1)
 
 [node name="Deleter" type="Area3D" parent="Body/HoleWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1974, 0)
@@ -161,7 +242,7 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Body/HoleWalls/Deleter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29895, 0)
 shape = SubResource("CylinderShape3D_vkscm")
-debug_color = Color(0.355503, 0.618433, 0, 0.42)
+debug_color = Color(0.351333, 0.62, 0, 1)
 
 [connection signal="body_entered" from="Body/HoleWalls/Activator" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Body/HoleWalls/Activator" to="." method="_on_area_3d_body_exited"]

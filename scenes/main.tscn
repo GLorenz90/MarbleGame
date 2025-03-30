@@ -56,9 +56,9 @@ mesh_library = ExtResource("5_tipki")
 cell_size = Vector3(1, 0.25, 1)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65535, 65535, 3, 65535, 0, 3, 0, 0, 3, 0, 65535, 3, 65535, 65534, 1, 0, 65534, 1, 65535, 1, 0, 0, 1, 0, 65534, 65534, 3, 65534, 65535, 3, 65534, 0, 3, 65534, 1, 3, 1, 65534, 3, 1, 65535, 3, 1, 0, 3, 1, 1, 3, 2, 1, 5, 2, 0, 5, 2, 65535, 5, 2, 65534, 5, 1, 65533, 1048581, 65534, 65533, 1048581, 2, 2, 4, 1, 2, 1441797, 65534, 2, 1441797, 65533, 65533, 655364, 2, 65533, 1048580, 65533, 2, 1441796, 0, 2, 1441795, 65535, 2, 1441795, 65533, 1, 655365, 65533, 0, 1441795, 65533, 65535, 1441795, 65533, 65534, 655365, 65535, 65533, 655363, 0, 65533, 655363, 0, 65532, 655369, 65535, 65532, 655369, 196607, 65531, 655365, 131072, 65531, 5, 131072, 65530, 1048578, 196607, 65530, 655362, 65535, 3, 6, 0, 3, 6, 131072, 4, 6, 196607, 4, 6, 262144, 5, 5, 327679, 5, 655365, 262144, 6, 2, 327679, 6, 1441794, 65532, 65535, 1441800, 65532, 0, 1441800, 131067, 0, 1441800, 131067, 65535, 1441800, 196602, 0, 1441800, 196602, 65535, 1441800, 262137, 0, 1441797, 262137, 65535, 1048581, 262136, 65535, 1441795, 262135, 65535, 655364, 262135, 0, 1441796, 262136, 0, 1441795, 262136, 65534, 655370, 262136, 1, 10)
+"cells": PackedInt32Array(65535, 65535, 3, 65535, 0, 3, 0, 0, 3, 0, 65535, 3, 65535, 65534, 1, 0, 65534, 1, 65535, 1, 0, 0, 1, 0, 65534, 65534, 3, 65534, 65535, 3, 65534, 0, 3, 65534, 1, 3, 1, 65534, 3, 1, 65535, 3, 1, 0, 3, 1, 1, 3, 2, 1, 5, 2, 0, 5, 2, 65535, 5, 2, 65534, 5, 1, 65533, 1048581, 65534, 65533, 1048581, 2, 2, 4, 1, 2, 1441797, 65534, 2, 1441797, 65533, 65533, 655364, 2, 65533, 1048580, 65533, 2, 1441796, 0, 2, 1441795, 65535, 2, 1441795, 65533, 1, 655365, 65533, 0, 1441795, 65533, 65535, 1441795, 65533, 65534, 655365, 65535, 65533, 655363, 0, 65533, 655363, 0, 65532, 655366, 65535, 65532, 655366, 196607, 65531, 655365, 131072, 65531, 5, 131072, 65530, 1048578, 196607, 65530, 655362, 65535, 3, 6, 0, 3, 6, 131072, 4, 6, 196607, 4, 6, 262144, 5, 5, 327679, 5, 655365, 262144, 6, 2, 327679, 6, 1441794, 65532, 65535, 1441800, 65532, 0, 1441800, 131067, 0, 1441800, 131067, 65535, 1441800, 196602, 0, 1441800, 196602, 65535, 1441800, 262137, 0, 1441797, 262137, 65535, 1048581, 262136, 65535, 1441795, 262135, 65535, 655364, 262135, 0, 1441796, 262136, 0, 1441795, 262136, 65534, 655370, 262136, 1, 10)
 }
-metadata/_editor_floor_ = Vector3(0, 3, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Marble" parent="." instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00659895, 0.155768, -0.0378213)
@@ -73,44 +73,98 @@ shadow_opacity = 0.5
 
 [node name="Collectables" type="Node3D" parent="."]
 
-[node name="Eatable2" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable2" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81115, 0.356141, 0.544074)
 
-[node name="Eatable3" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61817, 0.557894, 0.499045)
+[node name="Eatable3" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61817, 0.557894, -0.524534)
 
-[node name="Eatable4" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable4" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53952, 0.788232, 0.545012)
 
-[node name="Eatable5" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable5" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46658, 0.868717, 1.31854)
 
-[node name="Eatable6" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable30" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46658, 0.868717, 0.11218)
+
+[node name="Eatable31" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.21599, 0.868717, 0.11218)
+
+[node name="Eatable32" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58923, 0.868717, 0.11218)
+
+[node name="Eatable6" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.44044, 0.868717, -1.49717)
 
-[node name="Eatable" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32333, 1.02292, 4.67043)
 
-[node name="Eatable7" parent="." instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694744, 0.715772, 4.05612)
+[node name="Eatable15" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445799, 1.26044, 5.52531)
 
-[node name="Eatable8" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable16" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.467898, 1.26044, 6.1649)
+
+[node name="Eatable17" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.435647, 1.26044, 6.53038)
+
+[node name="Eatable7" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.503214, 0.715772, 3.90384)
+
+[node name="Eatable8" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34088, 0.355682, 3.33594)
 
-[node name="Eatable9" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable18" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46866, 0.355682, 2.27581)
+
+[node name="Eatable19" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12667, 0.355682, 2.00164)
+
+[node name="Eatable20" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23634, 0.355682, 1.23395)
+
+[node name="Eatable21" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45585, 0.355682, 2.29409)
+
+[node name="Eatable22" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13214, 0.355682, 1.92852)
+
+[node name="Eatable23" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47943, 0.355682, 1.16084)
+
+[node name="Eatable24" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36976, 0.355682, -1.59917)
+
+[node name="Eatable25" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22354, 0.355682, -2.27546)
+
+[node name="Eatable26" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49241, 0.355682, -2.62274)
+
+[node name="Eatable27" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28588, 0.355682, -2.56791)
+
+[node name="Eatable28" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25462, 0.355682, -2.25718)
+
+[node name="Eatable29" parent="Collectables" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6933, 0.355682, -1.54433)
+
+[node name="Eatable9" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.452233, 0.618717, -4.01717)
 
-[node name="Eatable10" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable10" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.671398, 0.618717, -4.62111)
 
-[node name="Eatable11" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable11" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00112998, 0.618717, -4.96681)
 
-[node name="Eatable12" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable12" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.509867, 0.618717, -5.60709)
 
-[node name="Eatable13" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable13" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358638, 0.618717, -5.48254)
 
-[node name="Eatable14" parent="." instance=ExtResource("7_o6xl0")]
+[node name="Eatable14" parent="Collectables" instance=ExtResource("7_o6xl0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.563313, 0.511971, -3.58222)
